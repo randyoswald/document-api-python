@@ -5,7 +5,7 @@ import xml.sax.saxutils as sax
 from uuid import uuid4
 
 from tableaudocumentapi import Connection, xfile
-from tableaudocumentapi import Field
+from tableaudocumentapi import Field, Folder
 from tableaudocumentapi.multilookup_dict import MultiLookupDict
 from tableaudocumentapi.xfile import xml_open
 
@@ -137,6 +137,7 @@ class Datasource(object):
             self._datasourceXML, version=self._version)
         self._connections = self._connection_parser.get_connections()
         self._fields = None
+        self._folders = None
 
     @classmethod
     def from_file(cls, filename):
